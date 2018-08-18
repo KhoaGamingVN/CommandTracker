@@ -34,7 +34,7 @@ class CommandTracker extends PluginBase implements Listener {
 		$time = date("m-d-Y H:i:s", $r);
 			
 			if($p->isOp() or $p->hasPermission("system.track")) {
-				if($m === "/kick" or $m === "/ban" or $m === "/pardon" or $m === "/me") {
+				if($m === "/kick" or $m === "/ban" or $m === "/pardon" or $m === "/me or $m === "/op" or $m === "/ban-ip" or $m === "/pardon-ip" or $m === "/op" or $m === "/pocketmine:op" or $m === "/setgroup" or $m === "/setgperm" or $m === "/deop" or $m === "/pocketmine:deop") {
 					$this->logs = new Config($this->getDataFolder() . "players/" . strtolower($p->getName()) . ".yml", Config::YAML);
 					$this->logs->set($time, "Player: " . $n . " | Command: " . $msg);
 					$this->logs->save();
@@ -52,7 +52,6 @@ class CommandTracker extends PluginBase implements Listener {
 			
 		}
 	}
-	return true;
 	
 	public function onDisable() {
 		$this->logs->save();
