@@ -42,7 +42,7 @@ class CommandTracker extends PluginBase implements Listener {
 			}
 	}
 	
-	public function onCommand(CommandSender $sender, Command $cmd, $label, array $param) {
+	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $param): bool {
 		switch(strtolower($cmd->getName())) {
 			
 			case "check":
@@ -56,5 +56,5 @@ class CommandTracker extends PluginBase implements Listener {
 	public function onDisable() {
 		$this->logs->save();
 	}
-	
+	return true;
 }
