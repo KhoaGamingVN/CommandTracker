@@ -51,10 +51,10 @@ class CommandTracker extends PluginBase implements Listener {
 			break;
 			
 		}
-	}		
+	}
+	return true;
 	
 	public function onDisable() {
 		$this->logs->save();
 	}
-	return true;
 }
